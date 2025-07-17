@@ -672,7 +672,7 @@
 
                     if (!generatedPrompt.includes('Subject:')) {
                         generatedPrompt = `
-Subject: ${generatedPrompt.substring(0, 150).trim()} (e.g., sleek BMW M-3, low stance).
+Subject: ${generatedPrompt.substring(0, 150).trim()} (e.g., sleek BMW M-3, low stance 
 Background: Matte black studio, carbon fiber textures, subtle fog.
 Style: Hyper-realistic digital art, cinematic angles.
 Lighting: High-contrast, sharp shadows, sapphire-blue glow.
@@ -883,23 +883,69 @@ Additional: 18k
             
             downloadBtn.addEventListener('click', async function() {
                 const imageUrl = generatedImage.src;
+                const originalHTML = downloadBtn.innerHTML;
+                downloadBtn.innerHTML = '<div class="loading-spinner"></div>';
+                downloadBtn.disabled = true;
+
                 try {
-                    const response = await fetch(imageUrl);
+                    // Attempt to fetch the image with CORS mode
+                    const response = await fetch(imageUrl, {
+                        method: 'GET',
+                        mode: 'cors',
+                        headers: {
+                            'Accept': 'image/jpeg,image/png'
+                        }
+                    });
+
                     if (!response.ok) {
-                        throw new Error('Failed to fetch image');
+                        throw new Error(`Failed to fetch image: ${response.status} ${response.statusText}`);
                     }
+
+                    const contentType = response.headers.get('content-type');
+                    if (!contentType || !contentType.startsWith('image/')) {
+                        throw new Error('Response is not an image');
+                    }
+
                     const blob = await response.blob();
+                    const fileExtension = contentType.includes('png') ? 'png' : 'jpg';
                     const url = window.URL.createObjectURL(blob);
                     const link = document.createElement('a');
                     link.href = url;
-                    link.download = 'generated-image.jpg';
+                    link.download = `generated-image.${fileExtension}`;
                     document.body.appendChild(link);
                     link.click();
                     document.body.removeChild(link);
                     window.URL.revokeObjectURL(url);
+
+                    // Provide user feedback
+                    downloadBtn.innerHTML = '<span class="flex items-center gap-2"><div class="w-4 h-4 flex items-center justify-center"><i class="ri-check-line"></i></div>Downloaded!</span>';
+                    setTimeout(() => {
+                        downloadBtn.innerHTML = originalHTML;
+                        downloadBtn.disabled = false;
+                    }, 2000);
                 } catch (error) {
                     console.error('Download failed:', error);
-                    alert('Failed to download image. Please try again.');
+
+                    // Fallback: Try direct link with download attribute
+                    try {
+                        const link = document.createElement('a');
+                        link.href = imageUrl;
+                        link.download = 'generated-image.jpg';
+                        document.body.appendChild(link);
+                        link.click();
+                        document.body.removeChild(link);
+
+                        downloadBtn.innerHTML = '<span class="flex items-center gap-2"><div class="w-4 h-4 flex items-center justify-center"><i class="ri-check-line"></i></div>Downloaded!</span>';
+                        setTimeout(() => {
+                            downloadBtn.innerHTML = originalHTML;
+                            downloadBtn.disabled = false;
+                        }, 2000);
+                    } catch (fallbackError) {
+                        console.error('Fallback download failed:', fallbackError);
+                        alert('Failed to download image. Right-click the image and select "Save Image As..." or check the console for details.');
+                        downloadBtn.innerHTML = originalHTML;
+                        downloadBtn.disabled = false;
+                    }
                 }
             });
         });
