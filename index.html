@@ -28,6 +28,8 @@
                         '3xl': '32px',
                         'full': '9999px',
                         'button': '8px'
+
+
                     },
                     fontFamily: {
                         'header': ['Inter', 'sans-serif']
@@ -145,6 +147,7 @@
             border-radius: 8px;
         }
 
+        /* Media Queries for Responsiveness */
         @media (max-width: 768px) {
             .text-5xl {
                 font-size: 2.5rem;
@@ -269,7 +272,7 @@
                 
                 <div class="max-w-2xl mx-auto">
                     <div id="upload-section" class="mb-8">
-                        <div class="file-drop-zone p-12 !rounded-xl text-center cursor-pointer transition-all duration-300 hover:bg-gray-900">
+                        <div class="file-drop-zone p-12 rounded-xl text-center cursor-pointer transition-all duration-300 hover:bg-gray-900">
                             <div class="w-16 h-16 flex items-center justify-center mx-auto mb-4">
                                 <i class="ri-upload-cloud-2-line ri-3x text-gray-400"></i>
                             </div>
@@ -282,7 +285,7 @@
                         </div>
                         
                         <div id="file-preview" class="hidden mt-8">
-                            <div class="bg-gray-900 p-6 !rounded-xl file-preview-container">
+                            <div class="bg-gray-900 p-6 rounded-xl file-preview-container">
                                 <div class="flex items-center justify-between mb-4">
                                     <h3 class="text-lg font-semibold">Selected Image</h3>
                                     <button id="remove-file" class="text-gray-400 hover:text-white">
@@ -291,7 +294,7 @@
                                         </div>
                                     </button>
                                 </div>
-                                <img id="preview-image" class="w-full max-h-64 object-contain !rounded-lg mb-4" alt="Preview">
+                                <img id="preview-image" class="w-full max-h-64 object-contain rounded-lg mb-4" alt="Preview">
                                 <p id="file-name" class="text-gray-400 text-sm"></p>
                             </div>
                         </div>
@@ -309,9 +312,9 @@
                     </div>
                     
                     <div id="prompt-result" class="hidden mb-8">
-                        <div class="bg-gray-900 p-6 !rounded-xl">
+                        <div class="bg-gray-900 p-6 rounded-xl">
                             <h3 class="text-lg font-semibold mb-4">Generated Prompt</h3>
-                            <div id="prompt-text" class="bg-black p-4 !rounded-lg text-gray-300 border border-gray-700 whitespace-pre-wrap"></div>
+                            <div id="prompt-text" class="bg-black p-4 rounded-lg text-gray-300 border border-gray-700 whitespace-pre-wrap"></div>
                             <button id="copy-prompt-btn" class="mt-4 bg-white text-black px-6 py-2 !rounded-button font-semibold font-header hover:bg-gray-200 transition-all duration-300 whitespace-nowrap">
                                 <span class="flex items-center gap-2">
                                     <div class="w-4 h-4 flex items-center justify-center">
@@ -327,7 +330,7 @@
                         <div class="grid md:grid-cols-3 gap-6">
                             <div>
                                 <label for="aspect-ratio" class="block text-sm font-medium text-gray-300 mb-2">Aspect Ratio</label>
-                                <select id="aspect-ratio" class="w-full bg-gray-900 border border-gray-700 !rounded-lg px-4 py-3 text-white focus:outline-none focus:border-white transition-colors duration-300">
+                                <select id="aspect-ratio" class="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-white transition-colors duration-300">
                                     <option value="16:9">16:9</option>
                                     <option value="4:3">4:3</option>
                                     <option value="1:1">1:1</option>
@@ -358,7 +361,7 @@
                     </div>
                     
                     <div id="generated-image-section" class="hidden mt-8">
-                        <div class="bg-gray-900 p-6 !rounded-xl">
+                        <div class="bg-gray-900 p-6 rounded-xl">
                             <h3 class="text-lg font-semibold mb-4">Generated Image</h3>
                             <div class="generated-image-container">
                                 <img id="generated-image" alt="Generated">
@@ -403,17 +406,17 @@
                     <div>
                         <form id="contact-form" class="space-y-6">
                             <div class="relative">
-                                <input type="text" id="name" required class="w-full bg-gray-900 border border-gray-700 !rounded-lg px-4 py-3 text-white placeholder-transparent focus:outline-none focus:border-white transition-colors duration-300">
+                                <input type="text" id="name" required class="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-3 text-white placeholder-transparent focus:outline-none focus:border-white transition-colors duration-300">
                                 <label for="name" class="absolute left-4 top-3 text-gray-400 transition-all duration-300 pointer-events-none">Full Name</label>
                             </div>
                             
                             <div class="relative">
-                                <input type="email" id="email" required class="w-full bg-gray-900 border border-gray-700 !rounded-lg px-4 py-3 text-white placeholder-transparent focus:outline-none focus:border-white transition-colors duration-300">
+                                <input type="email" id="email" required class="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-3 text-white placeholder-transparent focus:outline-none focus:border-white transition-colors duration-300">
                                 <label for="email" class="absolute left-4 top-3 text-gray-400 transition-all duration-300 pointer-events-none">Email Address</label>
                             </div>
                             
                             <div class="relative">
-                                <textarea id="message" rows="5" required class="w-full bg-gray-900 border border-gray-700 !rounded-lg px-4 py-3 text-white placeholder-transparent focus:outline-none focus:border-white transition-colors duration-300 resize-none"></textarea>
+                                <textarea id="message" rows="5" required class="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-3 text-white placeholder-transparent focus:outline-none focus:border-white transition-colors duration-300 resize-none"></textarea>
                                 <label for="message" class="absolute left-4 top-3 text-gray-400 transition-all duration-300 pointer-events-none">Your Message</label>
                             </div>
                             
@@ -428,21 +431,21 @@
                             <h3 class="text-xl font-semibold mb-4">Connect With Us</h3>
                             <div class="space-y-4">
                                 <div class="flex items-center gap-4">
-                                    <div class="w-10 h-10 flex items-center justify-center bg-gray-900 !rounded-lg">
+                                    <div class="w-10 h-10 flex items-center justify-center bg-gray-900 rounded-lg">
                                         <i class="ri-mail-line text-white"></i>
                                     </div>
                                     <span class="text-gray-300">ahsanking1099@gmail.com</span>
                                 </div>
                                 
                                 <div class="flex items-center gap-4">
-                                    <div class="w-10 h-10 flex items-center justify-center bg-gray-900 !rounded-lg">
+                                    <div class="w-10 h-10 flex items-center justify-center bg-gray-900 rounded-lg">
                                         <i class="ri-phone-line text-white"></i>
                                     </div>
                                     <span class="text-gray-300">+92 3343926359</span>
                                 </div>
                                 
                                 <div class="flex items-center gap-4">
-                                    <div class="w-10 h-10 flex items-center justify-center bg-gray-900 !rounded-lg">
+                                    <div class="w-10 h-10 flex items-center justify-center bg-gray-900 rounded-lg">
                                         <i class="ri-map-pin-line text-white"></i>
                                     </div>
                                     <span class="text-gray-300">Pakistan</span>
@@ -453,7 +456,7 @@
                         <div>
                             <h3 class="text-xl font-semibold mb-4">Follow Us</h3>
                             <div class="flex gap-4">
-                                <a href="https://wa.me/923021236630" target="_blank" class="w-12 h-12 flex items-center justify-center bg-gray-900 !rounded-lg hover:bg-white hover:text-black transition-all duration-300 transform hover:scale-110">
+                                <a href="https://wa.me/923021236630" target="_blank" class="w-12 h-12 flex items-center justify-center bg-gray-900 rounded-lg hover:bg-white hover:text-black transition-all duration-300 transform hover:scale-110">
                                     <i class="ri-whatsapp-line"></i>
                                 </a>
                             </div>
@@ -470,7 +473,7 @@
                     <div class="font-['Pacifico'] text-2xl text-white mb-4">Ahsan Labs</div>
                     <p class="text-gray-400 mb-6">A Powerful Image To Image Generator, Special Tool For Video Editors.</p>
                     <div class="flex gap-4">
-                        <a href="https://whatsapp.com/channel/0029Vb6cRL43GJOqdGUq4q0Q" target="_blank" class="w-10 h-10 flex items-center justify-center bg-black !rounded-lg hover:bg-white hover:text-black transition-all duration-300">
+                        <a href="https://whatsapp.com/channel/0029Vb6cRL43GJOqdGUq4q0Q" target="_blank" class="w-10 h-10 flex items-center justify-center bg-black rounded-lg hover:bg-white hover:text-black transition-all duration-300">
                             <i class="ri-whatsapp-line"></i>
                         </a>
                     </div>
@@ -498,7 +501,7 @@
                     <h3 class="text-lg font-semibold mb-4">Newsletter</h3>
                     <p class="text-gray-400 mb-4">Stay updated with our latest features and updates.</p>
                     <div class="flex gap-2">
-                        <input type="email" placeholder="Enter your email" class="flex-1 bg-black border border-gray-700 !rounded-lg px-3 py-2 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-white transition-colors duration-300">
+                        <input type="email" placeholder="Enter your email" class="flex-1 bg-black border border-gray-700 rounded-lg px-3 py-2 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-white transition-colors duration-300">
                         <button class="bg-white text-black px-4 py-2 !rounded-button font-semibold font-header hover:bg-gray-200 transition-all duration-300 whitespace-nowrap">
                             Subscribe
                         </button>
@@ -611,7 +614,7 @@
             const generationOptions = document.getElementById('generation-options');
             const fileInput = document.getElementById('file-input');
             const API_KEY = 'AIzaSyC1BgCOCGP58kas9aGBBU69MWcaqN5Uwkg';
-            const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`;
+            const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${API_KEY}`;
             
             generatePromptBtn.addEventListener('click', async function() {
                 const originalHTML = generatePromptBtn.innerHTML;
@@ -624,12 +627,14 @@
                         throw new Error('No image selected');
                     }
 
+                    // Convert image file to base64
                     const reader = new FileReader();
                     const base64Image = await new Promise((resolve) => {
                         reader.onload = () => resolve(reader.result.split(',')[1]);
                         reader.readAsDataURL(file);
                     });
 
+                    // Prepare request body for Gemini API
                     const requestBody = {
                         contents: [
                             {
@@ -648,6 +653,7 @@
                         ]
                     };
 
+                    // Make API call to Gemini
                     const response = await fetch(API_URL, {
                         method: 'POST',
                         headers: {
@@ -663,6 +669,7 @@
                     const result = await response.json();
                     let generatedPrompt = result.candidates[0].content.parts[0].text;
 
+                    // Structure the prompt if not already formatted
                     if (!generatedPrompt.includes('Subject:')) {
                         generatedPrompt = `
 Subject: ${generatedPrompt.substring(0, 150).trim()} (e.g., sleek BMW M-3, low stance).
@@ -673,6 +680,7 @@ Colors: Metallic silvers, deep blacks, neon red accents.
 `.trim();
                     }
 
+                    // Trim or pad prompt to 500-1000 characters
                     if (generatedPrompt.length > 1000) {
                         generatedPrompt = generatedPrompt.substring(0, 1000).trim() + '...';
                     } else if (generatedPrompt.length < 500) {
@@ -680,6 +688,7 @@ Colors: Metallic silvers, deep blacks, neon red accents.
                         generatedPrompt = generatedPrompt.substring(0, 1000).trim();
                     }
 
+                    // Display the generated prompt
                     promptText.textContent = generatedPrompt;
                     promptResult.classList.remove('hidden');
                     generationOptions.classList.remove('hidden');
@@ -695,6 +704,7 @@ Colors: Metallic silvers, deep blacks, neon red accents.
 
             copyPromptBtn.addEventListener('click', function() {
                 const prompt = promptText.textContent;
+                // Try modern clipboard API
                 if (navigator.clipboard && navigator.clipboard.writeText) {
                     navigator.clipboard.writeText(prompt).then(() => {
                         copyPromptBtn.innerHTML = '<span class="flex items-center gap-2"><div class="w-4 h-4 flex items-center justify-center"><i class="ri-check-line"></i></div>Copied!</span>';
@@ -703,9 +713,11 @@ Colors: Metallic silvers, deep blacks, neon red accents.
                         }, 2000);
                     }).catch(err => {
                         console.error('Clipboard API failed:', err);
+                        // Fallback to document.execCommand
                         fallbackCopyText(prompt);
                     });
                 } else {
+                    // Fallback for older browsers
                     fallbackCopyText(prompt);
                 }
             });
@@ -738,13 +750,13 @@ Colors: Metallic silvers, deep blacks, neon red accents.
             const generatedImage = document.getElementById('generated-image');
             const downloadBtn = document.getElementById('download-btn');
             const aspectRatioSelect = document.getElementById('aspect-ratio');
-
-            generateWatermarkBtn.addEventListener('click', async function() {
+            
+            generateWatermarkBtn.addEventListener('click', function() {
                 const promptText = document.getElementById('prompt-text').textContent;
                 const originalHTML = generateWatermarkBtn.innerHTML;
                 generateWatermarkBtn.innerHTML = '<div class="loading-spinner"></div>';
                 generateWatermarkBtn.disabled = true;
-
+                
                 const ratio = aspectRatioSelect.value;
                 let width, height;
                 switch (ratio) {
@@ -753,44 +765,42 @@ Colors: Metallic silvers, deep blacks, neon red accents.
                     case '16:9': width = 800; height = 450; break;
                     case '3:2': width = 800; height = 533; break;
                 }
-
-                const encodedPrompt = encodeURIComponent(promptText.substring(0, 1000));
+                
+                // Encode prompt and ensure it fits within URL length limits
+                let encodedPrompt = encodeURIComponent(promptText.substring(0, 1000));
+                const maxUrlLength = 2000; // Typical browser URL length limit
+                const baseUrl = `https://image.pollinations.ai/prompt/${encodedPrompt}?width=${width}&height=${height}&seed=${Math.floor(Math.random() * 1000000)}&nwm=false`;
+                if (baseUrl.length > maxUrlLength) {
+                    encodedPrompt = encodeURIComponent(promptText.substring(0, 500)); // Further trim if needed
+                }
                 const imageUrl = `https://image.pollinations.ai/prompt/${encodedPrompt}?width=${width}&height=${height}&seed=${Math.floor(Math.random() * 1000000)}&nwm=false`;
-
-                try {
-                    const response = await fetch(imageUrl, { method: 'HEAD', redirect: 'manual' });
-                    if (response.type === 'opaqueredirect') {
-                        throw new Error('Redirect detected. Pollinations.ai may require authentication.');
-                    }
-                    generatedImage.src = imageUrl;
+                
+                generatedImage.src = imageUrl;
+                generatedImage.onload = function() {
                     generatedImageSection.classList.remove('hidden');
-                } catch (error) {
-                    console.error('Image generation failed:', error);
-                    alert('Failed to generate image with Pollinations.ai. Please try again or check their documentation.');
-                } finally {
                     generateWatermarkBtn.innerHTML = originalHTML;
                     generateWatermarkBtn.disabled = false;
-                }
+                };
+                
+                generatedImage.onerror = function() {
+                    generateWatermarkBtn.innerHTML = originalHTML;
+                    generateWatermarkBtn.disabled = false;
+                    alert('Failed to generate image. Please try again.');
+                };
             });
-
+            
             generateNoWatermarkBtn.addEventListener('click', function() {
-                const promptText = document.getElementById('prompt-text').textContent;
-                const encodedPrompt = encodeURIComponent(promptText.substring(0, 1000));
-                const bingUrl = `https://www.bing.com/images/create?q=${encodedPrompt}`;
-
-                if (bingUrl.length > 2000) {
-                    alert('The prompt is too long for Bing Image Creator. Please shorten it and try again.');
+                const promptText = document.getElementById('prompt-text').textContent.substring(0, 1000);
+                const encodedPrompt = encodeURIComponent(promptText);
+                const maxUrlLength = 2000;
+                const baseUrl = `https://www.bing.com/images/create/ai-generator/646d6375c8824dff9a73c6e9a3b4cbc2?q=${encodedPrompt}`;
+                if (baseUrl.length > maxUrlLength) {
+                    alert('Prompt is too long for Bing Image Creator. Please copy and paste it manually.');
                     return;
                 }
-
-                try {
-                    window.open(bingUrl, '_blank');
-                } catch (error) {
-                    console.error('Failed to open Bing Image Creator:', error);
-                    alert('Failed to open Bing Image Creator. Please copy the prompt and paste it manually at https://www.bing.com/images/create.');
-                }
+                window.open(baseUrl, '_blank');
             });
-
+            
             downloadBtn.addEventListener('click', async function() {
                 const imageUrl = generatedImage.src;
                 try {
@@ -848,6 +858,7 @@ Colors: Metallic silvers, deep blacks, neon red accents.
                 };
 
                 try {
+                    // Simulated server-side endpoint (replace with actual endpoint)
                     const response = await fetch('https://your-server-endpoint/send-email', {
                         method: 'POST',
                         headers: {
