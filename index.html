@@ -340,20 +340,11 @@
                                         <div class="w-5 h-5 flex items-center justify-center">
                                             <i class="ri-image-line"></i>
                                         </div>
-                                        Watermark Image
+                                        All Ratio 
                                     </span>
                                 </button>
                             </div>
-                            <div class="flex items-end">
-                                <button id="generate-no-watermark-btn" class="w-full bg-transparent border-2 border-white text-white px-8 py-3 !rounded-button font-semibold font-header hover:bg-white hover:text-black transition-all duration-300 transform hover:scale-105 ripple whitespace-nowrap">
-                                    <span class="flex items-center justify-center gap-2">
-                                        <div class="w-5 h-5 flex items-center justify-center">
-                                            <i class="ri-image-line"></i>
-                                        </div>
-                                        No Watermark Image
-                                    </span>
-                                </button>
-                            </div>
+                            
                         </div>
                     </div>
                     
@@ -798,7 +789,7 @@ Additional: 18k
             const promptText = document.getElementById('prompt-text');
             
             function append18k(prompt) {
-                return prompt.includes('18k') ? prompt : `${prompt.trim()}, 18k`;
+                return prompt.includes('18k') ? prompt : `${prompt.trim()}, 20k`;
             }
 
             generateWatermarkBtn.addEventListener('click', function() {
@@ -816,14 +807,15 @@ Additional: 18k
                     case '16:9': width = 800; height = 450; break;
                     case '3:2': width = 800; height = 533; break;
                 }
-                
-                let encodedPrompt = encodeURIComponent(finalPrompt.substring(0, 1000));
-                const maxUrlLength = 2000;
+                const seed = Math.floor(Math.random() * 100000);
+                let encodedPrompt = encodeURIComponent(finalPrompt.substring(0, 8000));
+                const maxUrlLength = 9000;
+                const model = "flux-schnell"
 
-                let baseUrl = `https://pollinations.ai/p/${encodedPrompt}?width=${width}&height=${height}`;
+                let baseUrl = `https://pollinations.ai/p/${originalPrompt}?width=${width}&height=${height}&seed=${seed}&model=${model}&nologo=true`;
                 if (baseUrl.length > maxUrlLength) {
                     encodedPrompt = encodeURIComponent(finalPrompt.substring(0, 500));
-                    baseUrl = `https://pollinations.ai/p/${encodedPrompt}?width=${width}&height=${height}`;
+                    baseUrl = `https://pollinations.ai/p/${originalPrompt}?width=${width}&height=${height}&seed=${seed}&model=${model}&nologo=true`;
                 }
 
                 generatedImage.src = baseUrl;
