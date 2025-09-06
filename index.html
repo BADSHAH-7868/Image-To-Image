@@ -810,7 +810,7 @@ Additional: 18k
                 const seed = Math.floor(Math.random() * 100000);
                 let encodedPrompt = encodeURIComponent(finalPrompt.substring(0, 8000));
                 const maxUrlLength = 9000;
-                const model = "flux-schnell"
+                const model = "flux-dev"
 
                 let baseUrl = `https://pollinations.ai/p/${originalPrompt}?width=${width}&height=${height}&seed=${seed}&model=${model}&nologo=true`;
                 if (baseUrl.length > maxUrlLength) {
